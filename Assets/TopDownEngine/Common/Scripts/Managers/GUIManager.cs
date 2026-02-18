@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using MoreMountains.Tools;
 using UnityEngine.EventSystems;
+using TMPro;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -44,7 +45,7 @@ namespace MoreMountains.TopDownEngine
 		public CanvasGroup Joystick;
 		/// the points counter
 		[Tooltip("the points counter")]
-		public Text PointsText;
+		public TextMeshProUGUI PointsText;
 		/// the pattern to apply to format the display of points
 		[Tooltip("the pattern to apply to format the display of points")]
 		public string PointsTextPattern = "000000";
