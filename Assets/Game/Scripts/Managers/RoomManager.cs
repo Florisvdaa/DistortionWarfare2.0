@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,14 +17,22 @@ public class RoomManager : MonoBehaviour
     [Header("Room State")]
     [SerializeField] private RoomState currentState = RoomState.Unvisited;
 
+    [SerializeField] private bool isStartingRoom = false;
+    [SerializeField] private bool isCorridor = false;
+    
+    // Debug
     [SerializeField] bool canChangeState = false;
-
     //[Header("Enemy Spawner")]
     //[SerializeField] private EnemySpawner spawner;   // need to create this
 
     private void Start()
     {
-        DeactivatePortals();
+        if (isStartingRoom)
+            ActivatePortals();
+        else if (isCorridor)
+            ActivatePortals();
+        else
+            DeactivatePortals();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +46,14 @@ public class RoomManager : MonoBehaviour
         {
             EnterRoom();
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player"))
+            return;
+
+        canChangeState = false;
     }
 
     private void Update()
@@ -56,8 +73,6 @@ public class RoomManager : MonoBehaviour
 
         DeactivatePortals();
 
-       
-
         //if (spawner != null)
         //    spawner.StartSpawning();
     }
@@ -71,12 +86,21 @@ public class RoomManager : MonoBehaviour
     private void DeactivatePortals()
     {
         foreach (var port in portals)
+        {
             port.SetActive(false);
+
+            
+
+        }
     }
 
     private void ActivatePortals()
     {
         foreach (var port in portals)
+        {
             port.SetActive(true);
+            MMF_Player mmf_Player = port.GetComponentInChildren<MMF_Player>();
+            mmf_Player.PlayFeedbacks();
+        }
     }
 }
