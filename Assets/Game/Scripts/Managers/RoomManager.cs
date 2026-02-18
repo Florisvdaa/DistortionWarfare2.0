@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +11,16 @@ public class RoomManager : MonoBehaviour
         Active,
         Cleared
     }
-
+    [Header("Room settings")]
+    [SerializeField] private bool isStartingRoom = false;
+    [SerializeField] private bool isCorridor = false;
+    
     [Header("Connected Portals to this room")]
     [SerializeField] private List<GameObject> portals = new List<GameObject>();
 
     [Header("Room State")]
     [SerializeField] private RoomState currentState = RoomState.Unvisited;
 
-    [SerializeField] private bool isStartingRoom = false;
-    [SerializeField] private bool isCorridor = false;
-    
     // Debug
     [SerializeField] bool canChangeState = false;
     //[Header("Enemy Spawner")]
@@ -73,10 +74,13 @@ public class RoomManager : MonoBehaviour
 
         DeactivatePortals();
 
+        EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
+        if (enemySpawner != null) 
+            enemySpawner.StartSpawning();
+
         //if (spawner != null)
         //    spawner.StartSpawning();
     }
-
     public void OnRoomCleared()
     {
         currentState = RoomState.Cleared;
@@ -88,9 +92,6 @@ public class RoomManager : MonoBehaviour
         foreach (var port in portals)
         {
             port.SetActive(false);
-
-            
-
         }
     }
 
