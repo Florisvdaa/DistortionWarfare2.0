@@ -163,8 +163,8 @@ namespace MoreMountains.TopDownEngine
 		[Header("Points")]
 		/// the current number of game points
 		[MMReadOnly]
-		[Tooltip("the current number of game points")]
-		public int Points;
+		[Tooltip("the current number of Data Cells (Currency)")]
+		public int dataCells; // Currency
 
 		[Header("Pause")]
 		/// if this is true, the game will automatically pause when opening an inventory
@@ -215,7 +215,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Reset()
 		{
-			Points = 0;
+			dataCells = 0;
 			MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Reset, 1f, 0f, false, 0f, true);
 			Paused = false;
 		}
@@ -269,7 +269,7 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="pointsToAdd">Points to add.</param>
 		public virtual void AddPoints(int pointsToAdd)
 		{
-			Points += pointsToAdd;
+			dataCells += pointsToAdd;
 			GUIManager.Instance.RefreshPoints();
 		}
 		
@@ -279,7 +279,7 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="points">Points.</param>
 		public virtual void SetPoints(int points)
 		{
-			Points = points;
+			dataCells = points;
 			GUIManager.Instance.RefreshPoints();
 		}
 		

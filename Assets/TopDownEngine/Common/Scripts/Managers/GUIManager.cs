@@ -45,7 +45,7 @@ namespace MoreMountains.TopDownEngine
 		public CanvasGroup Joystick;
 		/// the points counter
 		[Tooltip("the points counter")]
-		public TextMeshProUGUI PointsText;
+		public TextMeshProUGUI DataCellsText;
 		/// the pattern to apply to format the display of points
 		[Tooltip("the pattern to apply to format the display of points")]
 		public string PointsTextPattern = "000000";
@@ -113,9 +113,9 @@ namespace MoreMountains.TopDownEngine
 			{ 
 				HUD.SetActive(state);
 			}
-			if (PointsText!= null)
+			if (DataCellsText!= null)
 			{ 
-				PointsText.enabled = state;
+				DataCellsText.enabled = state;
 			}
 		}
 
@@ -261,9 +261,9 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void RefreshPoints()
 		{
-			if (PointsText!= null)
+			if (DataCellsText!= null)
 			{ 
-				PointsText.text = GameManager.Instance.Points.ToString(PointsTextPattern);
+				DataCellsText.text = $"DataCells: {GameManager.Instance.dataCells.ToString(PointsTextPattern)}";
 			}
 		}
 

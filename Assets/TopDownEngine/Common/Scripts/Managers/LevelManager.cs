@@ -296,7 +296,7 @@ namespace MoreMountains.TopDownEngine
 		protected virtual void Initialization()
 		{
 			Checkpoints = FindObjectsOfType<CheckPoint>().OrderBy(o => o.CheckPointOrder).ToList();
-			_savedPoints =GameManager.Instance.Points;
+			_savedPoints =GameManager.Instance.dataCells;
 			_started = DateTime.UtcNow;
 		}
 

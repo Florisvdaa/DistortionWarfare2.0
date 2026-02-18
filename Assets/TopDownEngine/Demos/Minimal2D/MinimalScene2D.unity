@@ -5764,7 +5764,7 @@ MonoBehaviour:
   MaximumLives: 0
   CurrentLives: 0
   GameOverScene: 
-  Points: 0
+  dataCells: 0
   PauseGameWhenInventoryOpens: 1
 --- !u!4 &598334959
 Transform:
@@ -12266,6 +12266,11 @@ PrefabInstance:
       propertyPath: PointsText
       value: 
       objectReference: {fileID: 1546450569}
+    - target: {fileID: 114843531199840616, guid: b6993e89d9af3f64182a41c77cf345c2,
+        type: 3}
+      propertyPath: DataCellsText
+      value: 
+      objectReference: {fileID: 1546450569}
     - target: {fileID: 114897950874241748, guid: b6993e89d9af3f64182a41c77cf345c2,
         type: 3}
       propertyPath: TargetInventoryName
@@ -15420,8 +15425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546450569
 MonoBehaviour:

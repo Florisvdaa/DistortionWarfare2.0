@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using MoreMountains.TopDownEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,6 +86,18 @@ public class RoomManager : MonoBehaviour
     {
         currentState = RoomState.Cleared;
         ActivatePortals();
+
+        FindAllRemainingCoinsInRoom();
+    }
+
+    private void FindAllRemainingCoinsInRoom()
+    {
+        List<CoinParent> coinsInRoom = new List<CoinParent>(FindObjectsByType<CoinParent>(FindObjectsSortMode.None));
+
+        foreach (CoinParent coinParent in coinsInRoom)
+        {
+           coinParent.ActivateMagnetic();
+        }
     }
 
     private void DeactivatePortals()

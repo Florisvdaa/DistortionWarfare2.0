@@ -221,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.19}
+  m_Offset: {x: 0, y: 0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -232,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.5}
+  m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
 --- !u!210 &210462174901479078
 SortingGroup:
@@ -834,11 +834,11 @@ MonoBehaviour:
   MutualizedPoolName: 
   CanSpawn: 1
   Delay: 0
-  Quantity: {x: 1, y: 1}
+  Quantity: {x: 0, y: 1}
   SpawnProperties:
     Shape: 0
-    MinimumSphereRadius: 1
-    MaximumSphereRadius: 2
+    MinimumSphereRadius: 2
+    MaximumSphereRadius: 4
     MinimumCubeBaseSize: {x: 1, y: 1, z: 1}
     MaximumCubeBaseSize: {x: 2, y: 2, z: 2}
     ForcePlane: 1
@@ -10592,7 +10592,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 90b4a85560efd8044ba3c7c82bef32f5, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
