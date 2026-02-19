@@ -5067,7 +5067,7 @@ GameObject:
   - component: {fileID: 114345180357598506}
   - component: {fileID: 114251315345146356}
   m_Layer: 0
-  m_Name: PlayerArmWeapon
+  m_Name: PlayerDefaultArmWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5108,13 +5108,13 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.1
+  TimeBetweenUses: 0.5
   TimeBetweenUsesReleaseInterruption: 1
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 100
+  MagazineSize: 40
   AutoReload: 1
   NoInputReload: 0
   ReloadTime: 1
