@@ -5,18 +5,47 @@ using UnityEngine;
 
 public class CoinParent : MonoBehaviour
 {
-    [Header("Magnetic object")]
-    public LayerMask nothing;
-    public LayerMask player;
-    [SerializeField] private Magnetic magneticOBJ;
+    private Transform playerTransform;
+    private bool magnetActive = false;
+
+    [SerializeField] float magnetSpeed = 10f;
 
     private void Awake()
     {
-        magneticOBJ.TargetLayerMask = nothing;
+        DisableMagnet();
     }
 
-    public void ActivateMagnetic()
+    private void OnEnable()
     {
-        magneticOBJ.TargetLayerMask = player;
+        RoomManager currentRM = DW_GameManager.Instance.CurrentRoomManager();
+        currentRM.RegisterCoin(this);
+    }
+    private void OnDisable()
+    {
+        RoomManager currentRM = DW_GameManager.Instance.CurrentRoomManager();
+        currentRM.UnregisterCoin(this);
+    }
+
+    private void Update()
+    {
+        if (!magnetActive) return;
+
+        if (playerTransform == null)
+            DW_GameManager.Instance.PlayerTransform();
+
+        if(playerTransform == null) return;
+
+        transform.position = Vector3.Lerp(transform.position, playerTransform.position, magnetSpeed * Time.deltaTime);
+    }
+
+    public void EnableMagnet()
+    {
+        playerTransform = DW_GameManager.Instance.PlayerTransform();
+        magnetActive = true;
+    }
+
+    public void DisableMagnet()
+    {
+        magnetActive = false;
     }
 }

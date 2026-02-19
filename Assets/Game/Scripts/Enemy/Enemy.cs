@@ -1,3 +1,4 @@
+using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 using System;
 using System.Collections;
@@ -9,10 +10,12 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> OnEnemyDied;
 
     private Health health;
+    private MMHealthBar healthBar;
 
     private void Start()
     {
         health = GetComponent<Health>();
+        healthBar = GetComponent<MMHealthBar>();
     }
 
     private void Update()
@@ -25,6 +28,13 @@ public class Enemy : MonoBehaviour
     public void KillEnemy()
     {
         OnEnemyDied?.Invoke(this);
-        //Destroy(gameObject);
+
+        Invoke("RemoveEnemy", 3f);
+    }
+
+    private void RemoveEnemy()
+    {
+        Destroy(gameObject);
+        //Destroy(healthBar.gameObject);
     }
 }

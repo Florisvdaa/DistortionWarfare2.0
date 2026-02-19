@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour
         Active,
         Cleared
     }
+
     [Header("Room settings")]
     [SerializeField] private bool isStartingRoom = false;
     [SerializeField] private bool isCorridor = false;
@@ -22,10 +23,8 @@ public class RoomManager : MonoBehaviour
     [Header("Room State")]
     [SerializeField] private RoomState currentState = RoomState.Unvisited;
 
-    // Debug
-    [SerializeField] bool canChangeState = false;
-    //[Header("Enemy Spawner")]
-    //[SerializeField] private EnemySpawner spawner;   // need to create this
+    [Header("Active Coins In Room")]
+    [SerializeField] private List<CoinParent> coinsInRoom = new List<CoinParent>();
 
     private void Start()
     {
@@ -42,8 +41,6 @@ public class RoomManager : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        canChangeState = true;
-
         if (currentState == RoomState.Unvisited)
         {
             EnterRoom();
@@ -54,23 +51,11 @@ public class RoomManager : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
-
-        canChangeState = false;
     }
-
-    private void Update()
-    {
-        if (canChangeState)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                OnRoomCleared();
-            }
-        }
-    }
-
     private void EnterRoom()
     {
+        DW_GameManager.Instance.SetCurrentRoomManager(this);
+
         currentState = RoomState.Active;
 
         DeactivatePortals();
@@ -78,28 +63,35 @@ public class RoomManager : MonoBehaviour
         EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
         if (enemySpawner != null) 
             enemySpawner.StartSpawning();
-
-        //if (spawner != null)
-        //    spawner.StartSpawning();
     }
     public void OnRoomCleared()
     {
         currentState = RoomState.Cleared;
         ActivatePortals();
 
-        FindAllRemainingCoinsInRoom();
+        StartCoroutine(ChangeCoinMagnetism());
     }
 
-    private void FindAllRemainingCoinsInRoom()
+    private IEnumerator ChangeCoinMagnetism()
     {
-        List<CoinParent> coinsInRoom = new List<CoinParent>(FindObjectsByType<CoinParent>(FindObjectsSortMode.None));
+        yield return new WaitForSeconds(1);
 
-        foreach (CoinParent coinParent in coinsInRoom)
+        foreach (var coin in coinsInRoom)
         {
-           coinParent.ActivateMagnetic();
+            if (coin != null)
+                coin.EnableMagnet();
         }
     }
+    
+    public void RegisterCoin(CoinParent coin)
+    {
+        coinsInRoom.Add(coin);
+    }
 
+    public void UnregisterCoin(CoinParent coin)
+    {
+        coinsInRoom.Remove(coin);
+    }
     private void DeactivatePortals()
     {
         foreach (var port in portals)

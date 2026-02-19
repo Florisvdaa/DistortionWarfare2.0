@@ -22,6 +22,13 @@ namespace MoreMountains.TopDownEngine
 		{
 			// we send a new points event for the GameManager to catch (and other classes that may listen to it too)
 			TopDownEnginePointEvent.Trigger(PointsMethods.Add, PointsToAdd);
+
+			Invoke("Kill", .5f);
+		}
+
+		private void Kill()
+		{
+			Destroy(this.gameObject);
 		}
 	}
 }

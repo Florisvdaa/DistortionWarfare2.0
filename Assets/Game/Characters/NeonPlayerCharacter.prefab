@@ -10219,7 +10219,7 @@ MonoBehaviour:
   ForceWeaponAimControl: 1
   ForcedWeaponAimControl: 3
   ForceAlwaysShoot: 0
-  BufferInput: 1
+  BufferInput: 0
   NewInputExtendsBuffer: 0
   MaximumBufferDuration: 0.25
   RequiresPerfectTile: 0

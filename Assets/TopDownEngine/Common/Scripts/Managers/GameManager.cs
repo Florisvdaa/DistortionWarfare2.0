@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using MoreMountains.Tools;
 using System.Collections.Generic;
@@ -184,8 +185,8 @@ namespace MoreMountains.TopDownEngine
 		/// the stored selected character
 		public virtual Character StoredCharacter { get; set; }
 
-		// storage
-		protected bool _inventoryOpen = false;
+        // storage
+        protected bool _inventoryOpen = false;
 		protected bool _pauseMenuOpen = false;
 		protected InventoryInputManager _inventoryInputManager;
 		protected int _initialMaximumLives;
