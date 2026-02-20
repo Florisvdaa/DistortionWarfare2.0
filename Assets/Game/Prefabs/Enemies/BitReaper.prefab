@@ -4979,11 +4979,12 @@ GameObject:
   - component: {fileID: 2439401147963574603}
   - component: {fileID: 2437845140208405313}
   - component: {fileID: 467072173}
-  - component: {fileID: 467072190}
+  - component: {fileID: 5199634147145345352}
   - component: {fileID: 6001817263335111814}
   - component: {fileID: 497189304777273071}
+  - component: {fileID: 3157837794839752649}
   m_Layer: 13
-  m_Name: KoalaNinjaRifleman
+  m_Name: BitReaper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5215,7 +5216,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 6
+  WalkSpeed: 2
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 10
@@ -5292,7 +5293,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 114317679573123918, guid: 1b80d0a781b16184f8eeec786984fe3a,
+  InitialWeapon: {fileID: 114317679573123918, guid: fcb0cbb7beedfb34a862ee15cbb39fd3,
     type: 3}
   CanPickupWeapons: 1
   WeaponUseFeedback: {fileID: 0}
@@ -5371,37 +5372,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   States:
-  - StateName: Moving
-    Actions:
-      array:
-      - {fileID: 467072190}
-      - {fileID: 467072173}
-    Transitions:
-      array:
-      - Decision: {fileID: 2438640544995507925}
-        TrueState: Deciding
-        FalseState: 
-  - StateName: Deciding
+  - StateName: Detecting
     Actions:
       array:
       - {fileID: 2437835760440974471}
     Transitions:
       array:
-      - Decision: {fileID: 2438468500197026521}
-        TrueState: Attacking
+      - Decision: {fileID: 2438640544995507925}
+        TrueState: Moving
         FalseState: 
-  - StateName: Attacking
+  - StateName: Moving
     Actions:
       array:
+      - {fileID: 5199634147145345352}
       - {fileID: 2437789940715566383}
     Transitions:
       array:
-      - Decision: {fileID: 2439401147963574603}
+      - Decision: {fileID: 2438640544995507925}
         TrueState: 
-        FalseState: Moving
+        FalseState: Detecting
       - Decision: {fileID: 2438468500197026521}
         TrueState: 
-        FalseState: Deciding
+        FalseState: Detecting
   TimeInThisState: 0
   Target: {fileID: 0}
   _lastKnownTargetPosition: {x: 0, y: 0, z: 0}
@@ -5481,9 +5473,9 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   TargetHandleWeaponAbility: {fileID: 0}
-  AimOrigin: 0
-  FaceTarget: 1
-  AimAtTarget: 1
+  AimOrigin: 1
+  FaceTarget: 0
+  AimAtTarget: 0
   ShootOffset: {x: 0, y: 0, z: 0}
   OnlyAimWhenInState: 1
 --- !u!114 &2439401147963574603
@@ -5729,7 +5721,7 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   OnlyIfTargetIsNull: 0
---- !u!114 &467072190
+--- !u!114 &5199634147145345352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5738,19 +5730,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2325596686016990461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8135bf55f3495254099bc5daee8423d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 47557c9dd44293a41bc6710b083332de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
-  MaximumDurationInADirection: 2
-  ObstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  ObstaclesDetectionDistance: 1
-  ObstaclesCheckFrequency: 0
-  MinimumRandomDirection: {x: -1, y: -1}
-  MaximumRandomDirection: {x: 1, y: 1}
+  UseMinimumXDistance: 1
+  MinimumXDistance: 1
 --- !u!114 &6001817263335111814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5847,6 +5833,22 @@ MonoBehaviour:
   GizmosColor: {r: 0.827451, g: 0.827451, b: 0.827451, a: 1}
   GimosSize: 1
   SpawnLootButton: 0
+--- !u!114 &3157837794839752649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2325596686016990461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c8fb5d6a8ccf4d90c75cc9119ce61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 2499749632227582667}
+  invulnerableDuration: 1
+  vulnerableDuration: 1
+  invulnerableAlpha: 0.3
 --- !u!1 &2325619290637431437
 GameObject:
   m_ObjectHideFlags: 0
