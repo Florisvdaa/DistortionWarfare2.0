@@ -27,7 +27,16 @@ public class DW_GameManager : MonoBehaviour
     private void Start()
     {
         FindPlayer();
+
+        Invoke("GameStart", 1.5f);
     }
+
+    private void GameStart()
+    {
+        // weapon selection
+        GUIManager.Instance.SetWeaponSelection(true);
+    }
+
     private void FindPlayer()
     {
         if (playerTransform != null) return;

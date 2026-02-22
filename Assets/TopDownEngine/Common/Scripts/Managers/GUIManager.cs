@@ -4,6 +4,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEditor;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -19,6 +20,10 @@ namespace MoreMountains.TopDownEngine
 		/// the game object that contains the heads up display (avatar, health, points...)
 		[Tooltip("the game object that contains the heads up display (avatar, health, points...)")]
 		public GameObject HUD;
+
+		[SerializeField] private GameObject weaponSelectionOverlay;
+		[SerializeField] private Image activeWeaponSprite;
+		
 		/// the health bars to update
 		[Tooltip("the health bars to update")]
 		public MMProgressBar[] HealthBars;
@@ -129,6 +134,28 @@ namespace MoreMountains.TopDownEngine
 			{
 				HUD.SetActive(state);
 			}
+		}
+
+		public virtual void SetWeaponSelection(bool state)
+		{
+			if(weaponSelectionOverlay != null)
+			{
+				weaponSelectionOverlay.SetActive(state);
+			}
+
+			if(state)
+			{
+                GameManager.Instance.Pause(PauseMethods.NoPauseMenu);
+            }
+			else
+			{
+				GameManager.Instance.Pause(PauseMethods.NoPauseMenu, true);
+			}
+		}
+
+		public virtual void SetSelectedWeaponSprite(Sprite weapon)
+		{
+			activeWeaponSprite.sprite = weapon;
 		}
 
 		/// <summary>
