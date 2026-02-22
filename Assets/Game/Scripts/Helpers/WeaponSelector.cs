@@ -31,7 +31,6 @@ public class WeaponSelector : MonoBehaviour
         weapon.InitialWeapon = selectedWeapon;
         weapon.Setup();
 
-
         GUIManager.Instance.SetSelectedWeaponSprite(weaponSprite);
         GUIManager.Instance.SetWeaponSelection(false);
         
