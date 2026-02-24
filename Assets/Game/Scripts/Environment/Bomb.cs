@@ -17,8 +17,14 @@ public class Bomb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet"))
+        {
+            Health projectile = collision.GetComponent<Health>();
+
+            projectile.Kill();
+            
             explode = true;
+        }
     }
 
     private void Update()
