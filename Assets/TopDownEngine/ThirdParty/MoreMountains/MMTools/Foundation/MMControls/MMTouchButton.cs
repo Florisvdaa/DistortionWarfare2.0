@@ -14,7 +14,7 @@ namespace MoreMountains.Tools
 	/// </summary>
 	[RequireComponent(typeof(Rect))]
 	[RequireComponent(typeof(CanvasGroup))]
-	[AddComponentMenu("More Mountains/Tools/Controls/MM Touch Button")]
+	[AddComponentMenu("More Mountains/Tools/Controls/MMTouchButton")]
 	public class MMTouchButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, IPointerEnterHandler, ISubmitHandler
 	{
 		[Header("Interaction")] 

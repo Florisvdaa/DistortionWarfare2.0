@@ -4,7 +4,7 @@ using UnityEngine;
 #if MM_UI
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Shader Controller")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringShaderController")]
 	public class MMSpringShaderController : MMSpringFloatComponent<ShaderController>
 	{
 		public override float TargetFloat

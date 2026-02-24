@@ -204,7 +204,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// Use this class to play audiosources (usually background music but feel free to use that for anything) in sequence, with optional crossfade between songs
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Audio/MM Playlist")]
+	[AddComponentMenu("More Mountains/Tools/Audio/MMPlaylist")]
 	[MMRequiresConstantRepaint]
 	public class MMPlaylist : MMMonoBehaviour
 	{

@@ -15,7 +15,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[RequireComponent(typeof(Volume))]
 	#endif
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MM Auto Focus URP")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMAutoFocus_URP")]
 	public class MMAutoFocus_URP : MonoBehaviour
 	{
 		[Header("Bindings")]

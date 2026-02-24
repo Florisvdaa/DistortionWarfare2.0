@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Rotation")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringRotation")]
 	public class MMSpringRotation : MMSpringVector3Component<Transform>
 	{
 		public enum Spaces { Local, World }

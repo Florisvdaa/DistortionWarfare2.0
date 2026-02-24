@@ -30,7 +30,7 @@ namespace MoreMountains.Tools
 	/// - MMSfxEvents
 	/// - MMSoundManagerEvents : mute track, control track, save, load, reset, stop persistent sounds 
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Audio/MM Sound Manager")]
+	[AddComponentMenu("More Mountains/Tools/Audio/MMSoundManager")]
 	public class MMSoundManager : MMPersistentSingleton<MMSoundManager>, 
 		MMEventListener<MMSoundManagerTrackEvent>, 
 		MMEventListener<MMSoundManagerEvent>,

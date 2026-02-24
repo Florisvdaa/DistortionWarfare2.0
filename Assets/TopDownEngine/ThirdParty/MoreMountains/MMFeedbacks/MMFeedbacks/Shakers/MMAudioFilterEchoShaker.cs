@@ -8,7 +8,7 @@ namespace MoreMountains.Feedbacks
 	/// <summary>
 	/// Add this to an audio echo filter to shake its values remapped along a curve 
 	/// </summary>
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Audio/MM Audio Filter Echo Shaker")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Audio/MMAudioFilterEchoShaker")]
 	[RequireComponent(typeof(AudioEchoFilter))]
 	public class MMAudioFilterEchoShaker : MMShaker
 	{

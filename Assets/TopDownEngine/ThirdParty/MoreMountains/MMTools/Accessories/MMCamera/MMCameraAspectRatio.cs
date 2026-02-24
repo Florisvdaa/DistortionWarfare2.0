@@ -9,7 +9,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// Forces an aspect ratio on a camera
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Camera/MM Camera Aspect Ratio")]
+	[AddComponentMenu("More Mountains/Tools/Camera/MMCameraAspectRatio")]
 	public class MMCameraAspectRatio : MonoBehaviour 
 	{
 		public enum Modes { Fixed, ScreenRatio }

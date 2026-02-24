@@ -5,7 +5,7 @@ using UnityEngine.Rendering.HighDefinition;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Motion Blur Intensity HDRP")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringMotionBlurIntensity_HDRP")]
 	public class MMSpringMotionBlurIntensity_HDRP : MMSpringFloatComponent<Volume>
 	{
 		protected MotionBlur _motionBlur;

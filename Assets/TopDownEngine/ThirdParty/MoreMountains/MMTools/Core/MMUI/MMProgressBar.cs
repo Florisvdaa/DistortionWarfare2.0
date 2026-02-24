@@ -16,7 +16,7 @@ namespace MoreMountains.Tools
 	/// See the HealthBar.cs script for a use case
 	/// </summary>
 	[MMRequiresConstantRepaint]
-	[AddComponentMenu("More Mountains/Tools/GUI/MM Progress Bar")]
+	[AddComponentMenu("More Mountains/Tools/GUI/MMProgressBar")]
 	public class MMProgressBar : MMMonoBehaviour
 	{
 		#if MM_UI

@@ -4,7 +4,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Lens Distortion Intensity")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringLensDistortionIntensity")]
 	public class MMSpringLensDistortionIntensity : MMSpringFloatComponent<PostProcessVolume>
 	{
 		protected LensDistortion _lensDistortion;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Position")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringPosition")]
 	public class MMSpringPosition : MMSpringVector3Component<Transform>
 	{
 		public enum Spaces { Local, World }

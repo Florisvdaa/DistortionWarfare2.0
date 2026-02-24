@@ -9,7 +9,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// <summary>
 	/// Use this class to have a global PP volume auto blend its weight on cue, between a start and end values
 	/// </summary>
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MM Global Post Processing Volume Auto Blend")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMGlobalPostProcessingVolumeAutoBlend")]
 	#if MM_POSTPROCESSING
 	[RequireComponent(typeof(PostProcessVolume))]
 	#endif

@@ -16,7 +16,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[RequireComponent(typeof(Volume))]
 	#endif
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MM Vignette Shaker URP")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMVignetteShaker_URP")]
 	public class MMVignetteShaker_URP : MMShaker
 	{
 		[MMInspectorGroup("Vignette Intensity", true, 63)]

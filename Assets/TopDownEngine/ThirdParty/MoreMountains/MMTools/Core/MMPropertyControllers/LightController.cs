@@ -7,7 +7,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// A class used to control the intensity of a light
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Property Controllers/Light Controller")]
+	[AddComponentMenu("More Mountains/Tools/Property Controllers/LightController")]
 	public class LightController : MonoBehaviour
 	{
 		[Header("Binding")]

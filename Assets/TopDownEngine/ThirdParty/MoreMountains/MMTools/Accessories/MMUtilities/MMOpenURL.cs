@@ -5,7 +5,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// A class used to open a URL specified in its inspector
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Utilities/MM Open URL")]
+	[AddComponentMenu("More Mountains/Tools/Utilities/MMOpenURL")]
 	public class MMOpenURL : MonoBehaviour 
 	{
 		/// the URL to open when calling OpenURL()

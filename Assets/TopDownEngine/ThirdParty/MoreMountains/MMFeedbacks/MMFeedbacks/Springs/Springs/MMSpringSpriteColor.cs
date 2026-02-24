@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Sprite Color")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringSpriteColor")]
 	public class MMSpringSpriteColor : MMSpringColorComponent<SpriteRenderer>
 	{
 		public override Color TargetColor

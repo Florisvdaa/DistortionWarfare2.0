@@ -4,7 +4,7 @@ using TMPro;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring TMP Font Size")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringTMPFontSize")]
 	public class MMSpringTMPFontSize : MMSpringFloatComponent<TMP_Text>
 	{
 		public override float TargetFloat

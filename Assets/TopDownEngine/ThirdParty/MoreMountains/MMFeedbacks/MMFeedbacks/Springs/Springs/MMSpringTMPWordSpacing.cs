@@ -4,7 +4,7 @@ using TMPro;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring TMP Word Spacing")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringTMPWordSpacing")]
 	public class MMSpringTMPWordSpacing : MMSpringFloatComponent<TMP_Text>
 	{
 		public override float TargetFloat

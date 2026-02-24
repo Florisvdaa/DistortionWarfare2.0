@@ -40,7 +40,7 @@ namespace MoreMountains.Feedbacks
 	/// <summary>
 	/// Add this class to a GameObject to make it blink, either by enabling/disabling a gameobject, changing its alpha, emission intensity, or a value on a shader)
 	/// </summary>
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Various/MM Blink")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Various/MMBlink")]
 	public class MMBlink : MMMonoBehaviour
 	{
 		/// the possible states of the blinking object

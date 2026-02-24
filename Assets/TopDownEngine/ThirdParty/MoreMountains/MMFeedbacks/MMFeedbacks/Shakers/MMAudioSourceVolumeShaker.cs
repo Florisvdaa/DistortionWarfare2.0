@@ -8,7 +8,7 @@ namespace MoreMountains.Feedbacks
 	/// <summary>
 	/// Add this to an AudioSource to shake its volume remapped along a curve 
 	/// </summary>
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Audio/MM Audio Source Volume Shaker")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Audio/MMAudioSourceVolumeShaker")]
 	[RequireComponent(typeof(AudioSource))]
 	public class MMAudioSourceVolumeShaker : MMShaker
 	{

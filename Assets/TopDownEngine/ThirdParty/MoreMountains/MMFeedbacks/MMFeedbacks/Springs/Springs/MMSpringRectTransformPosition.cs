@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Rect Transform Position")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringRectTransformPosition")]
 	public class MMSpringRectTransformPosition : MMSpringVector3Component<RectTransform>
 	{
 		public override Vector3 TargetVector3

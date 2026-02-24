@@ -13,7 +13,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[RequireComponent(typeof(Volume))]
 	#endif
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MM Global Post Processing Volume Auto Blend URP")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMGlobalPostProcessingVolumeAutoBlend_URP")]
 	public class MMGlobalPostProcessingVolumeAutoBlend_URP : MonoBehaviour
 	{
 		/// the possible timescales this blend can operate on

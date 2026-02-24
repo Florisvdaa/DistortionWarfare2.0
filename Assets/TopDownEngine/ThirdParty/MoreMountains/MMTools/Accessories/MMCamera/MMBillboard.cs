@@ -7,7 +7,7 @@ namespace MoreMountains.Tools
 	/// <summary>
 	/// Add this class to an object (usually a sprite) and it'll face the camera at all times
 	/// </summary>
-	[AddComponentMenu("More Mountains/Tools/Camera/MM Billboard")]
+	[AddComponentMenu("More Mountains/Tools/Camera/MMBillboard")]
 	public class MMBillboard : MonoBehaviour
 	{
 		/// the camera we're facing

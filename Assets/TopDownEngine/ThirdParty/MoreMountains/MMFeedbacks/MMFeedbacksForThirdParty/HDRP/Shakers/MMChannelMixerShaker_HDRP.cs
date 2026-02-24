@@ -14,7 +14,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_HDRP
 	[RequireComponent(typeof(Volume))]
 	#endif
-	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MM Channel Mixer Shaker HDRP")]
+	[AddComponentMenu("More Mountains/Feedbacks/Shakers/PostProcessing/MMChannelMixerShaker_HDRP")]
 	public class MMChannelMixerShaker_HDRP : MMShaker
 	{
 		/// whether or not to add to the initial value

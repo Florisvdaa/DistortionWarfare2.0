@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Image Fill Amount")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringImageFillAmount")]
 	public class MMSpringImageFillAmount : MMSpringFloatComponent<Image>
 	{
 		public override float TargetFloat

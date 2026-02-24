@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace MoreMountains.Tools
 {
-	[AddComponentMenu("More Mountains/Tools/Particles/MM Renderer Sorting Layer")]
+	[AddComponentMenu("More Mountains/Tools/Particles/MMRendererSortingLayer")]
 	public class MMRendererSortingLayer : MonoBehaviour 
 	{
 	}

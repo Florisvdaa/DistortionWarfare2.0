@@ -4,7 +4,7 @@ using TMPro;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring TMP Text Color")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringTMPTextColor")]
 	public class MMSpringTMPTextColor : MMSpringColorComponent<TMP_Text>
 	{
 		public override Color TargetColor

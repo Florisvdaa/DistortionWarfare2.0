@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring Image Color")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringImageColor")]
 	public class MMSpringImageColor : MMSpringColorComponent<Image>
 	{
 		public override Color TargetColor

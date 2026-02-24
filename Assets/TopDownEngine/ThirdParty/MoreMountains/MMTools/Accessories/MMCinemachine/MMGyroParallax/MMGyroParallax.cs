@@ -13,7 +13,7 @@ namespace MoreMountains.Tools
 	/// A class used to store gyro properties per camera
 	/// </summary>
 	[Serializable]
-	[AddComponentMenu("More Mountains/Tools/Cinemachine/MM Gyro Cam")]
+	[AddComponentMenu("More Mountains/Tools/Cinemachine/MMGyroCam")]
 	public class MMGyroCam
 	{
 		#if MM_CINEMACHINE

@@ -4,7 +4,7 @@ using TMPro;
 
 namespace MoreMountains.Feedbacks
 {
-	[AddComponentMenu("More Mountains/Springs/MM Spring TMP Dilate")]
+	[AddComponentMenu("More Mountains/Springs/MMSpringTMPDilate")]
 	public class MMSpringTMPDilate : MMSpringFloatComponent<TMP_Text>
 	{
 		protected override void ApplyValue(float newValue)

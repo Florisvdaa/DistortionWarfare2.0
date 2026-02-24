@@ -169,7 +169,7 @@ namespace MoreMountains.Tools
 	#if MM_UI
 	[RequireComponent(typeof(Image))]
 	#endif
-	[AddComponentMenu("More Mountains/Tools/GUI/MM Fader")]
+	[AddComponentMenu("More Mountains/Tools/GUI/MMFader")]
 	public class MMFader : MMMonoBehaviour, MMEventListener<MMFadeEvent>, MMEventListener<MMFadeInEvent>, MMEventListener<MMFadeOutEvent>, MMEventListener<MMFadeStopEvent>
 	{
 		public enum ForcedInitStates { None, Active, Inactive }
