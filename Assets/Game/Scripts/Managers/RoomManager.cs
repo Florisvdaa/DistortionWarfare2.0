@@ -16,7 +16,9 @@ public class RoomManager : MonoBehaviour
     [Header("Room settings")]
     [SerializeField] private bool isStartingRoom = false;
     [SerializeField] private bool isCorridor = false;
-    
+
+    [SerializeField] private GameObject startingPortal;
+
     [Header("Connected Portals to this room")]
     [SerializeField] private List<GameObject> portals = new List<GameObject>();
 
@@ -29,7 +31,10 @@ public class RoomManager : MonoBehaviour
     private void Start()
     {
         if (isStartingRoom)
+        {
+            if (startingPortal == null) Debug.Log("Correct");
             ActivatePortals();
+        }
         else if (isCorridor)
             ActivatePortals();
         else
@@ -94,6 +99,9 @@ public class RoomManager : MonoBehaviour
     }
     private void DeactivatePortals()
     {
+
+        startingPortal.SetActive(false);
+
         foreach (var port in portals)
         {
             port.SetActive(false);
