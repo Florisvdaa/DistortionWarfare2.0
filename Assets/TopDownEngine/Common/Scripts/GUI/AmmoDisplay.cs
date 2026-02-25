@@ -92,25 +92,25 @@ namespace MoreMountains.TopDownEngine
 				if (displayTotal)
 				{
 					_stringBuilder.Append(ammoInMagazine.ToString());
-					//_stringBuilder.Append("/");
-					//_stringBuilder.Append(magazineSize.ToString());
-					//_stringBuilder.Append(" - ");
+					_stringBuilder.Append("/");
+					_stringBuilder.Append(magazineSize.ToString());
+					_stringBuilder.Append(" - ");
 					_stringBuilder.Append((totalAmmo - ammoInMagazine).ToString());
 					this.UpdateTextDisplay (_stringBuilder.ToString());					
 				}
 				else
 				{
 					_stringBuilder.Append(ammoInMagazine.ToString());
-					//_stringBuilder.Append("/");
-					//_stringBuilder.Append(magazineSize.ToString());
+					_stringBuilder.Append("/");
+					_stringBuilder.Append(magazineSize.ToString());
 					this.UpdateTextDisplay (_stringBuilder.ToString());
 				}
 			}
 			else
 			{
 				_stringBuilder.Append(totalAmmo.ToString());
-				//_stringBuilder.Append("/");
-				//_stringBuilder.Append(maxAmmo.ToString());
+				_stringBuilder.Append("/");
+				_stringBuilder.Append(maxAmmo.ToString());
 				this.UpdateBar(totalAmmo,0,maxAmmo);	
 				this.UpdateTextDisplay (_stringBuilder.ToString());
 			}

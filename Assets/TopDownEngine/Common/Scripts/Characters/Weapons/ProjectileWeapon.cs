@@ -147,7 +147,6 @@ namespace MoreMountains.TopDownEngine
 				nextGameObject.transform.position = _projectileSpawnTransform.position;
 			}
 			// we set its direction
-
 			Projectile projectile = nextGameObject.GetComponent<Projectile>();
 			if (projectile != null)
 			{
@@ -157,6 +156,31 @@ namespace MoreMountains.TopDownEngine
 					projectile.SetOwner(Owner.gameObject);
 				}
 			}
+
+			//DamageOnTouch dmgOnTouch = nextGameObject.GetComponent<DamageOnTouch>();
+			//if (dmgOnTouch != null)
+			//{
+			//	// NEEDS TO SET OLD DMG ON TOUCH BACK.
+			//	// Get current old and min damage
+			//	float oldMinDMG = dmgOnTouch.MinDamageCaused;
+			//	float oldMaxDMG = dmgOnTouch.MaxDamageCaused;
+
+			//	if(CurrentAmmoLoaded == 1)
+			//	{
+   //                 dmgOnTouch.MinDamageCaused = dmgOnTouch.MinDamageCaused * 2;
+   //                 dmgOnTouch.MaxDamageCaused = dmgOnTouch.MaxDamageCaused * 2;
+
+   //                 Debug.Log($"{dmgOnTouch.MinDamageCaused} , {dmgOnTouch.MaxDamageCaused}");
+   //             }
+			//	else
+			//	{
+			//		dmgOnTouch.MinDamageCaused = oldMinDMG;
+			//		dmgOnTouch.MaxDamageCaused = oldMaxDMG;
+			//	}
+
+			//	Debug.Log($"{dmgOnTouch.MinDamageCaused} , {dmgOnTouch.MaxDamageCaused}");
+   //         }
+
 			// we activate the object
 			nextGameObject.gameObject.SetActive(true);
 

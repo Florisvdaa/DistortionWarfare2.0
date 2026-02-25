@@ -5000,7 +5000,8 @@ MonoBehaviour:
   Owner: {fileID: 0}
   TriggerFilter: 195
   MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MaxDamageCaused: 20
+  RoundDamageToInt: 1
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1

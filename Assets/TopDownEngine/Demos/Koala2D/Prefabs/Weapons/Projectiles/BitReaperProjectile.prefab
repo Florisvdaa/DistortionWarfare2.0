@@ -5001,9 +5001,10 @@ MonoBehaviour:
   TriggerFilter: 195
   MinDamageCaused: 10
   MaxDamageCaused: 10
+  RoundDamageToInt: 1
   TypedDamages: []
   DamageDirectionMode: 1
-  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackType: 0
   DamageCausedKnockbackDirection: 3
   DamageCausedKnockbackForce: {x: 400, y: 0, z: 0}
   InvincibilityDuration: 0.1

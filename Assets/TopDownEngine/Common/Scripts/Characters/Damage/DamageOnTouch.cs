@@ -82,6 +82,8 @@ namespace MoreMountains.TopDownEngine
 		/// The max amount of health to remove from the player's health
 		[Tooltip("The max amount of health to remove from the player's health")]
 		public float MaxDamageCaused = 10f;
+		[Tooltip("Check to round the damage to Int")] // Own change
+		public bool RoundDamageToInt = false;
 		/// a list of typed damage definitions that will be applied on top of the base damage
 		[Tooltip("a list of typed damage definitions that will be applied on top of the base damage")]
 		public List<TypedDamage> TypedDamages;
@@ -647,9 +649,21 @@ namespace MoreMountains.TopDownEngine
 				HitDamageableFeedback?.PlayFeedbacks(this.transform.position);
 				HitDamageableEvent?.Invoke(_colliderHealth);
 
-				// we apply the damage to the thing we've collided with
-				float randomDamage =
-					UnityEngine.Random.Range(MinDamageCaused, Mathf.Max(MaxDamageCaused, MinDamageCaused));
+				float randomDamage;
+
+				if(!RoundDamageToInt)
+				{
+					// we apply the damage to the thing we've collided with
+					float newRandomDmgFloat = UnityEngine.Random.Range(MinDamageCaused, Mathf.Max(MaxDamageCaused, MinDamageCaused));
+
+					randomDamage = newRandomDmgFloat;
+                }
+				else
+				{
+                    // we apply the damage to the thing we've collided with
+                    int newRandomDmgInt = (int)UnityEngine.Random.Range(MinDamageCaused, Mathf.Max(MaxDamageCaused, MinDamageCaused));
+                    randomDamage = newRandomDmgInt;
+                }
 
 				ApplyKnockback(randomDamage, TypedDamages);
 
