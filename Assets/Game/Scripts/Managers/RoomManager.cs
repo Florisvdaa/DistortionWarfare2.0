@@ -12,6 +12,15 @@ public class RoomManager : MonoBehaviour
         Active,
         Cleared
     }
+    public enum RewardType
+    {
+        None,
+        Coins,
+        Weapon,
+        Upgrade,
+        Healing,
+        Shop
+    }
 
     [Header("Room settings")]
     [SerializeField] private bool isStartingRoom = false;
@@ -22,8 +31,9 @@ public class RoomManager : MonoBehaviour
     [Header("Connected Portals to this room")]
     [SerializeField] private List<GameObject> portals = new List<GameObject>();
 
-    [Header("Room State")]
+    [Header("Enums")]
     [SerializeField] private RoomState currentState = RoomState.Unvisited;
+    [SerializeField] private RewardType rewardType = RewardType.None;
 
     [Header("Active Coins In Room")]
     [SerializeField] private List<CoinParent> coinsInRoom = new List<CoinParent>();
@@ -61,18 +71,33 @@ public class RoomManager : MonoBehaviour
     {
         DW_GameManager.Instance.SetCurrentRoomManager(this);
 
-        currentState = RoomState.Active;
+        if (!isStartingRoom)
+        {
+            currentState = RoomState.Active;
+            DeactivatePortals();
 
-        DeactivatePortals();
+            EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
+            if (enemySpawner != null)
+                enemySpawner.StartSpawning();
+        }
+        else
+        {
+            OnRoomCleared();
+        }
+            
 
-        EnemySpawner enemySpawner = GetComponent<EnemySpawner>();
-        if (enemySpawner != null) 
-            enemySpawner.StartSpawning();
     }
     public void OnRoomCleared()
     {
         currentState = RoomState.Cleared;
         ActivatePortals();
+
+        foreach (var port in portals)
+        {
+            port.gameObject.SetActive(true);
+
+            port.GetComponent<Teleporter>().RollNextRoom();
+        }
 
         StartCoroutine(ChangeCoinMagnetism());
     }
@@ -99,7 +124,6 @@ public class RoomManager : MonoBehaviour
     }
     private void DeactivatePortals()
     {
-
         startingPortal.SetActive(false);
 
         foreach (var port in portals)
@@ -113,8 +137,11 @@ public class RoomManager : MonoBehaviour
         foreach (var port in portals)
         {
             port.SetActive(true);
-            MMF_Player mmf_Player = port.GetComponentInChildren<MMF_Player>();
-            mmf_Player.PlayFeedbacks();
+            //MMF_Player mmf_Player = port.GetComponentInChildren<MMF_Player>();
+            //mmf_Player.PlayFeedbacks();
         }
     }
+
+    public RewardType GetRewardType() => rewardType;
+    public Transform GetStartingTransform() => startingPortal.transform;
 }
