@@ -271,7 +271,7 @@ namespace MoreMountains.TopDownEngine
 		public virtual void AddPoints(int pointsToAdd)
 		{
 			dataCells += pointsToAdd;
-			GUIManager.Instance.RefreshPoints();
+			GUIManager.Instance.RefreshPoints(pointsToAdd);
 		}
 		
 		/// <summary>
@@ -281,7 +281,7 @@ namespace MoreMountains.TopDownEngine
 		public virtual void SetPoints(int points)
 		{
 			dataCells = points;
-			GUIManager.Instance.RefreshPoints();
+			GUIManager.Instance.RefreshPoints(points);
 		}
 		
 		/// <summary>

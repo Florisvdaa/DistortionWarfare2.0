@@ -5,6 +5,7 @@ using MoreMountains.Tools;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEditor;
+using MoreMountains.Feedbacks;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -54,7 +55,7 @@ namespace MoreMountains.TopDownEngine
 		/// the pattern to apply to format the display of points
 		[Tooltip("the pattern to apply to format the display of points")]
 		public string PointsTextPattern = "000000";
-
+		public MMF_Player floatingPointsText;
 
 		protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
@@ -103,7 +104,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void Start()
 		{
-			RefreshPoints();
+			RefreshPoints(GameManager.Instance.dataCells);
 			SetPauseScreen(false);
 			SetDeathScreen(false);
 		}
@@ -286,11 +287,20 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Sets the text to the game manager's points.
 		/// </summary>
-		public virtual void RefreshPoints()
+		public virtual void RefreshPoints(int points)
 		{
 			if (DataCellsText!= null)
 			{ 
-				DataCellsText.text = $"DataCells: {GameManager.Instance.dataCells.ToString(PointsTextPattern)}";
+				DataCellsText.text = $"{GameManager.Instance.dataCells.ToString(PointsTextPattern)}";
+
+				if(floatingPointsText != null)
+				{
+					MMF_FloatingText floatingText = floatingPointsText.GetFeedbackOfType<MMF_FloatingText>();
+
+					floatingText.Value = $"+{points}";
+
+					floatingPointsText.PlayFeedbacks(this.transform.position);
+				}
 			}
 		}
 

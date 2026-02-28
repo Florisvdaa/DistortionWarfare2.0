@@ -11,6 +11,8 @@ public class CheatLog : MonoBehaviour
 
     public static DebugCommand DAMAGE;
     public static DebugCommand DOUBLE_DAMAGE;
+    public static DebugCommand ADD_POINTS;
+    public static DebugCommand ADD_RANDOM_POINTS;
 
     public List<object> commandList;
 
@@ -27,13 +29,28 @@ public class CheatLog : MonoBehaviour
 
         DOUBLE_DAMAGE = new DebugCommand("double_damage", "Deals more damage", "double_damage", () =>
         {
-            //playerChar.Damage(20);
+            Health playerHealth = playerChar.GetComponent<Health>();
+            playerHealth.Damage(20f, this.gameObject, 0.1f, 0.1f, new Vector3(0, 0, 0));
+        });
+
+        ADD_POINTS = new DebugCommand("dingdingding", "Grants the player points", "dingdingding", () =>
+        {
+            GameManager.Instance.AddPoints(100);
+        });
+
+        ADD_RANDOM_POINTS = new DebugCommand("randdingdingding", "Grants the player random amount of points", "randdingdingding", () => 
+        {
+            int randInt = Random.Range(0, 100);
+
+            GameManager.Instance.AddPoints(randInt);
         });
 
         commandList = new List<object>
         {
             DAMAGE,
-            DOUBLE_DAMAGE
+            DOUBLE_DAMAGE,
+            ADD_POINTS,
+            ADD_RANDOM_POINTS,
         };
     }
 
