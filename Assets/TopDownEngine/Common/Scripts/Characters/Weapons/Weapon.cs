@@ -933,6 +933,8 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (MagazineBased)
 			{
+				GUIManager.Instance.UpdateReloadSlider(ReloadTime);
+
 				TriggerWeaponReloadFeedback();
 			}
 		}

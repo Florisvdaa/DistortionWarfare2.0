@@ -5117,7 +5117,7 @@ MonoBehaviour:
   MagazineSize: 40
   AutoReload: 1
   NoInputReload: 0
-  ReloadTime: 1
+  ReloadTime: 2
   AmmoConsumedPerShot: 1
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1

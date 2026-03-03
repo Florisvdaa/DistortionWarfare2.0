@@ -211,11 +211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardIcon: {fileID: 5504262163491332133}
   rewardSprites:
-  - {fileID: 2120164733, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
+  - {fileID: 584709302, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
   - {fileID: -1040281625, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
   - {fileID: 1612146251, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
-  - {fileID: -2001954359, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
   - {fileID: -1999228807, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
+  - {fileID: 2120164733, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
+  - {fileID: -2001954359, guid: a0635ca4905509b4caa63035bffd9342, type: 3}
 --- !u!61 &5651296306374978862
 BoxCollider2D:
   m_ObjectHideFlags: 0

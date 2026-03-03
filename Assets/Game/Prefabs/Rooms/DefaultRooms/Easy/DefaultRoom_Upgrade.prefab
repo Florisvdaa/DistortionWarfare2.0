@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &799604034631528469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8832017120658213298}
+  m_Layer: 0
+  m_Name: RewardSpanwPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8832017120658213298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799604034631528469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.64, y: -6.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7428602357657551794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208014319529732194
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +224,7 @@ Transform:
   - {fileID: 3670189810474371836}
   - {fileID: 1215008888256292612}
   - {fileID: 8925810852868039968}
+  - {fileID: 8832017120658213298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7940151131726931163
@@ -216,6 +248,8 @@ MonoBehaviour:
   currentState: 0
   rewardType: 3
   coinsInRoom: []
+  rewardDatabase: {fileID: 11400000, guid: fb503055a77537b49b6f59c3100eecc8, type: 2}
+  roomRewardSpawnPos: {fileID: 8832017120658213298}
 --- !u!61 &8043750382593489231
 BoxCollider2D:
   m_ObjectHideFlags: 0

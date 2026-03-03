@@ -57,6 +57,8 @@ namespace MoreMountains.TopDownEngine
 		public string PointsTextPattern = "000000";
 		public MMF_Player floatingPointsText;
 
+		public Slider reloadslider;
+
 		protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
 		protected bool _initialized = false;
@@ -107,6 +109,8 @@ namespace MoreMountains.TopDownEngine
 			RefreshPoints(GameManager.Instance.dataCells);
 			SetPauseScreen(false);
 			SetDeathScreen(false);
+
+			reloadslider.gameObject.SetActive(false);
 		}
 
 		/// <summary>
@@ -376,6 +380,29 @@ namespace MoreMountains.TopDownEngine
 					ammoDisplay.UpdateAmmoDisplays (magazineBased, totalAmmo, maxAmmo, ammoInMagazine, magazineSize, displayTotal);
 				}    
 			}
+		}
+
+		public void UpdateReloadSlider(float reloadTime)
+		{
+			StartCoroutine(ReloadSliderRoutine(reloadTime));
+		}
+
+		private IEnumerator ReloadSliderRoutine(float reloadTime)
+		{
+			reloadslider.gameObject.SetActive(true);
+			reloadslider.value = 0f;
+
+			float elapsed = 0f;
+
+			while (elapsed < reloadTime)
+			{
+				elapsed += Time.deltaTime;
+				reloadslider.value = elapsed / reloadTime;
+				yield return null;
+			}
+
+			reloadslider.value = 1f;
+			reloadslider.gameObject.SetActive(false);
 		}
 	}
 }

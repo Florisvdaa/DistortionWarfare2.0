@@ -38,6 +38,8 @@ public class RoomManager : MonoBehaviour
     [Header("Active Coins In Room")]
     [SerializeField] private List<CoinParent> coinsInRoom = new List<CoinParent>();
 
+    [SerializeField] private RoomRewards rewardDatabase;
+    [SerializeField] private Transform roomRewardSpawnPos;
     private void Start()
     {
         if (isStartingRoom)
@@ -99,6 +101,12 @@ public class RoomManager : MonoBehaviour
             port.GetComponent<Teleporter>().RollNextRoom();
         }
 
+        // Drop the room reward
+        if(rewardDatabase != null && rewardType != RewardType.None)
+        {
+            Instantiate(GetRewardPrefab(), roomRewardSpawnPos.position, Quaternion.identity); // Plus spawn feedback
+        }
+
         StartCoroutine(ChangeCoinMagnetism());
     }
 
@@ -140,6 +148,33 @@ public class RoomManager : MonoBehaviour
             //MMF_Player mmf_Player = port.GetComponentInChildren<MMF_Player>();
             //mmf_Player.PlayFeedbacks();
         }
+    }
+
+    private GameObject GetRewardPrefab()
+    {
+        switch (rewardType)
+        {
+            case RewardType.Coins:
+                return GetRandom(rewardDatabase.coinRewards);
+            case RewardType.Weapon:
+                return GetRandom(rewardDatabase.weaponRewards);
+            case RewardType.Upgrade:
+                return GetRandom(rewardDatabase.upgradeRewards);
+            case RewardType.Healing:
+                return GetRandom(rewardDatabase.healthRewards);
+            case RewardType.Shop:
+                return null;
+            default:
+                return null;
+        }
+
+    }
+    private GameObject GetRandom(List<GameObject> list)
+    {
+        if (list == null || list.Count == 0)
+            return null;
+
+        return list[Random.Range(0, list.Count)];
     }
 
     public RewardType GetRewardType() => rewardType;
