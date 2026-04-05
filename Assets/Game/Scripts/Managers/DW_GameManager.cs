@@ -12,6 +12,7 @@ public class DW_GameManager : MonoBehaviour
 
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Character playerChar;
+    [SerializeField] private WeaponSelector weaponSelector;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,9 +27,9 @@ public class DW_GameManager : MonoBehaviour
     }
     private void Start()
     {
-        FindPlayer();
-
-        Invoke("GameStart", 1.5f);
+        //FindPlayerAndStartGame();
+        StartCoroutine(FindPlayerAndStartGameCOR());
+        //Invoke("GameStart", .5f);
     }
 
     private void GameStart()
@@ -37,13 +38,37 @@ public class DW_GameManager : MonoBehaviour
         GUIManager.Instance.SetWeaponSelection(true);
     }
 
-    private void FindPlayer()
+    private IEnumerator FindPlayerAndStartGameCOR()
+    {
+        if (playerTransform != null) yield return null;
+
+        playerChar = FindObjectOfType<Character>();
+
+        if (playerChar != null)
+            playerTransform = playerChar.transform;
+
+        if (weaponSelector != null) yield return null;
+
+        weaponSelector = FindObjectOfType<WeaponSelector>();
+
+        weaponSelector.SetPlayer(playerChar);
+
+        yield return new WaitForEndOfFrame();
+
+        // weapon selection & pauses the game time
+        GUIManager.Instance.SetWeaponSelection(true);
+    }
+
+    private void FindPlayerAndStartGame()
     {
         if (playerTransform != null) return;
 
         playerChar = FindObjectOfType<Character>();
         if(playerChar != null)
             playerTransform = playerChar.transform;
+
+        // weapon selection & pauses the game time
+        GUIManager.Instance.SetWeaponSelection(true);
     }
     public void SetCurrentRoomManager(RoomManager currentRM)
     {
@@ -58,7 +83,7 @@ public class DW_GameManager : MonoBehaviour
     public Transform PlayerTransform()
     {
         if (playerChar != null)
-            FindPlayer();
+            FindPlayerAndStartGame();
 
         return playerChar.transform;
     }

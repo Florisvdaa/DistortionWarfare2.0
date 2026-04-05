@@ -62,6 +62,11 @@ namespace MoreMountains.TopDownEngine
 		/// whether or not the weapon is magazine based. If it's not, it'll just take its ammo inside a global pool
 		[Tooltip("whether or not the weapon is magazine based. If it's not, it'll just take its ammo inside a global pool")]
 		public bool MagazineBased = false;
+		/// Total ammo
+		public int TotalAmmo = 300;
+		/// Remaining Ammo
+		public int RemainingAmmo;
+
 		/// the size of the magazine
 		[Tooltip("the size of the magazine")]
 		public int MagazineSize = 30;
@@ -322,7 +327,13 @@ namespace MoreMountains.TopDownEngine
 			InitializeAnimatorParameters();
 			if (WeaponAmmo == null)
 			{
-				CurrentAmmoLoaded = MagazineSize;
+				RemainingAmmo = TotalAmmo;
+
+				if (RemainingAmmo > 0)
+				{
+					CurrentAmmoLoaded = MagazineSize;
+					RemainingAmmo -= CurrentAmmoLoaded;
+				}
 			}
 			InitializeFeedbacks();       
 		}
@@ -640,7 +651,21 @@ namespace MoreMountains.TopDownEngine
 			WeaponState.ChangeState(WeaponStates.WeaponIdle);
 			if (WeaponAmmo == null)
 			{
-				CurrentAmmoLoaded = MagazineSize;
+                if (RemainingAmmo > 0)
+                {
+					int difference = MagazineSize - CurrentAmmoLoaded;
+
+					//Debug.Log(difference);
+
+                    CurrentAmmoLoaded = MagazineSize;
+					RemainingAmmo -= difference;
+                }
+				else
+				{
+					// Total ammo is empty
+					Debug.Log("Total ammo empty");
+					// Reload not possible
+				}
 			}
 		}
 

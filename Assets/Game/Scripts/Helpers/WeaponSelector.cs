@@ -22,7 +22,7 @@ public class WeaponSelector : MonoBehaviour
 
     private void Start()
     {
-        Invoke("GetPlayer", 1f);
+        //Invoke("GetPlayer", 1f);
     }
 
     private void SetWeapon(ProjectileWeapon selectedWeapon, Sprite weaponSprite)
@@ -35,6 +35,8 @@ public class WeaponSelector : MonoBehaviour
         GUIManager.Instance.SetWeaponSelection(false);
         
     }
+
+    public void SetPlayer(Character playerCharacter) { playerChar = playerCharacter; }
 
     private void GetPlayer()
     {

@@ -618,7 +618,8 @@ namespace MoreMountains.TopDownEngine
 				if (CurrentWeapon.WeaponAmmo == null)
 				{
 					GUIManager.Instance.SetAmmoDisplays(true, _character.PlayerID, AmmoDisplayID);
-					GUIManager.Instance.UpdateAmmoDisplays(CurrentWeapon.MagazineBased, 0, 0, CurrentWeapon.CurrentAmmoLoaded, CurrentWeapon.MagazineSize, _character.PlayerID, AmmoDisplayID, false);
+					GUIManager.Instance.UpdateAmmoDisplays(CurrentWeapon.MagazineBased, CurrentWeapon.TotalAmmo, CurrentWeapon.RemainingAmmo, CurrentWeapon.CurrentAmmoLoaded, CurrentWeapon.MagazineSize, _character.PlayerID, AmmoDisplayID, false);
+					//Debug.Log("Deze weapon update?");
 					return;
 				}
 				else

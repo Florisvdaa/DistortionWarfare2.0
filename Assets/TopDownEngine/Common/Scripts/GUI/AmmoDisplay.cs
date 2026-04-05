@@ -27,7 +27,14 @@ namespace MoreMountains.TopDownEngine
 		/// the TMP object used to display the current ammo numbers
 		[Tooltip("the TMP object used to display the current ammo numbers")]
 		public TMP_Text TextDisplayTextMeshPro;
-		#endif
+#endif
+
+
+		// Own extention
+		[Header("Bullet UI")]
+		public Transform bulletContainer;
+		public GameObject bulletPrefab;
+		public bool invertBulletOrder = false;
 
 		protected int _totalAmmoLastTime, _maxAmmoLastTime, _ammoInMagazineLastTime, _magazineSizeLastTime;
 		protected StringBuilder _stringBuilder;
@@ -64,6 +71,27 @@ namespace MoreMountains.TopDownEngine
 			#endif
 		}
 
+		protected virtual void UpdateBulletIcons(int ammoInMagazine)
+		{
+			if (bulletContainer == null || bulletPrefab == null)
+				return;
+
+			// Clear old bullets
+			foreach (Transform child in bulletContainer)
+			{
+				Destroy(child.gameObject);
+			}
+
+			// Create new bullets
+			for (int i = 0; i < ammoInMagazine; i++)
+			{
+				GameObject bullet = Instantiate(bulletPrefab, bulletContainer);
+
+				if (invertBulletOrder)
+					bullet.transform.SetAsFirstSibling();
+			}
+		}
+
 		/// <summary>
 		/// Updates the ammo display's text and progress bar
 		/// </summary>
@@ -73,7 +101,7 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="ammoInMagazine">Ammo in magazine.</param>
 		/// <param name="magazineSize">Magazine size.</param>
 		/// <param name="displayTotal">If set to <c>true</c> display total.</param>
-		public virtual void UpdateAmmoDisplays(bool magazineBased, int totalAmmo, int maxAmmo, int ammoInMagazine, int magazineSize, bool displayTotal)
+		public virtual void UpdateAmmoDisplays(bool magazineBased, int totalAmmo, int maxAmmo, int ammoInMagazine, int magazineSize, bool displayTotal, Transform bulletContainerParent)
 		{
 			// we make sure there's actually something to update
 			if ((_totalAmmoLastTime == totalAmmo)
@@ -88,22 +116,30 @@ namespace MoreMountains.TopDownEngine
 			
 			if (magazineBased)
 			{
-				this.UpdateBar(ammoInMagazine,0,magazineSize);	
-				if (displayTotal)
+				this.UpdateBar(ammoInMagazine,0,magazineSize);
+
+				if(bulletContainerParent != null)
+					UpdateBulletIcons(ammoInMagazine);
+
+                if (displayTotal)
 				{
 					_stringBuilder.Append(ammoInMagazine.ToString());
 					_stringBuilder.Append("/");
-					_stringBuilder.Append(magazineSize.ToString());
+					_stringBuilder.Append(totalAmmo.ToString());
 					_stringBuilder.Append(" - ");
 					_stringBuilder.Append((totalAmmo - ammoInMagazine).ToString());
 					this.UpdateTextDisplay (_stringBuilder.ToString());					
 				}
 				else
 				{
-					_stringBuilder.Append(ammoInMagazine.ToString());
+					int totalLiveAmmo = maxAmmo + ammoInMagazine;
+
+					_stringBuilder.Append(totalLiveAmmo.ToString());
 					_stringBuilder.Append("/");
-					_stringBuilder.Append(magazineSize.ToString());
-					this.UpdateTextDisplay (_stringBuilder.ToString());
+					_stringBuilder.Append(totalAmmo.ToString());
+                    this.UpdateTextDisplay (_stringBuilder.ToString());
+
+					
 				}
 			}
 			else

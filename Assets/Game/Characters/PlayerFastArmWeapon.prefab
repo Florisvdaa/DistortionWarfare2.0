@@ -5114,7 +5114,9 @@ MonoBehaviour:
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 1
-  MagazineSize: 100
+  TotalAmmo: 300
+  RemainingAmmo: 0
+  MagazineSize: 50
   AutoReload: 1
   NoInputReload: 0
   ReloadTime: 1

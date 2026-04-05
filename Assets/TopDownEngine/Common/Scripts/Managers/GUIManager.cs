@@ -58,6 +58,7 @@ namespace MoreMountains.TopDownEngine
 		public MMF_Player floatingPointsText;
 
 		public Slider reloadslider;
+		public Transform bulletContainerParent;
 
 		protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
@@ -377,7 +378,7 @@ namespace MoreMountains.TopDownEngine
 				if (ammoDisplay == null) { return; }
 				if ((ammoDisplay.PlayerID == playerID) && (ammoDisplayID == ammoDisplay.AmmoDisplayID))
 				{
-					ammoDisplay.UpdateAmmoDisplays (magazineBased, totalAmmo, maxAmmo, ammoInMagazine, magazineSize, displayTotal);
+					ammoDisplay.UpdateAmmoDisplays (magazineBased, totalAmmo, maxAmmo, ammoInMagazine, magazineSize, displayTotal, bulletContainerParent);
 				}    
 			}
 		}
